@@ -3,413 +3,846 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人简历 | 周继龙</title>
+  <title>个人主页 | 周继龙</title>
   <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-soft: #eff6ff;
+      --accent: #0f172a;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 34%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 48%, #ffffff 100%);
       line-height: 1.75;
-      color: #222;
-      background: #f4f6f8;
+      font-size: 15px;
     }
 
     a {
-      color: #2563eb;
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.85);
     }
 
-    .container {
-      max-width: 980px;
-      margin: 40px auto;
-      padding: 42px;
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
     }
 
-    header {
-      padding-bottom: 28px;
-      margin-bottom: 34px;
-      border-bottom: 1px solid #e5e7eb;
+    .brand {
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #4b5563;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px 14px;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: #4b5563;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 30px 24px 46px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 46px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.98), rgba(15, 23, 42, 0.98)),
+        radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.20), transparent 30%);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: -110px;
+      top: -130px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 13px;
+      margin-bottom: 14px;
     }
 
     .name {
-      font-size: 42px;
-      font-weight: 750;
-      color: #111827;
-      margin-bottom: 8px;
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 1.05;
+      font-weight: 850;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
     }
 
     .position {
       font-size: 18px;
-      color: #374151;
-      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.90);
+      margin-bottom: 22px;
     }
 
     .contact {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 18px;
-      color: #4b5563;
-      font-size: 15px;
+      gap: 10px;
+    }
+
+    .contact a,
+    .contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: white;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .contact a:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 18px 0 30px;
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    }
+
+    .highlight-card strong {
+      display: block;
+      color: var(--accent);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .highlight-card span {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     section {
-      margin-bottom: 34px;
+      margin-bottom: 28px;
+      scroll-margin-top: 88px;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.055);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
     h2 {
       font-size: 24px;
-      color: #111827;
-      margin-bottom: 16px;
-      padding-left: 12px;
-      border-left: 5px solid #2563eb;
+      line-height: 1.2;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .item {
-      margin-bottom: 22px;
+    h2::before {
+      content: "";
+      width: 7px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 16px;
+    }
+
+    .about-text {
+      font-size: 15.5px;
+      color: #374151;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .edu-card,
+    .project-card,
+    .result-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
     }
 
     .item-header {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 6px;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 9px;
     }
 
     h3 {
+      color: var(--accent);
       font-size: 18px;
-      color: #1f2937;
+      line-height: 1.35;
     }
 
     .time {
-      color: #6b7280;
-      font-size: 14px;
+      flex: 0 0 auto;
+      color: var(--primary-dark);
+      background: var(--primary-soft);
+      border: 1px solid #dbeafe;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12.5px;
       white-space: nowrap;
+      font-weight: 650;
     }
 
-    p {
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
       margin-bottom: 8px;
     }
 
+    .project-card {
+      margin-bottom: 14px;
+      transition: 0.2s ease;
+    }
+
+    .project-card:hover,
+    .edu-card:hover,
+    .result-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    }
+
     ul {
-      margin-left: 22px;
-      margin-top: 6px;
+      padding-left: 19px;
+      margin-top: 8px;
     }
 
     li {
       margin-bottom: 6px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
+    li::marker {
+      color: var(--primary);
     }
 
-    .tag {
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: #eef3ff;
-      color: #1d4ed8;
-      font-size: 14px;
+    .course-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 12px;
-      margin-top: 10px;
-      font-size: 15px;
+      font-size: 14.5px;
+      background: white;
     }
 
-    th, td {
-      padding: 11px 12px;
-      border: 1px solid #e5e7eb;
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
       text-align: left;
-      vertical-align: top;
+      vertical-align: middle;
     }
 
     th {
-      background: #f3f4f6;
-      color: #111827;
+      background: #f8fafc;
+      color: var(--accent);
+      font-weight: 750;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .score {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: var(--primary-dark);
+      background: var(--primary-soft);
+      font-weight: 800;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      border: 1px solid #dbeafe;
+      font-size: 13.5px;
       font-weight: 650;
+    }
+
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .award-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .award-item::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .result-card + .result-card {
+      margin-top: 12px;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 22px;
+      border-radius: 18px;
+      text-align: center;
+      color: #64748b;
+      background: #ffffff;
+      border: 1px solid var(--line);
     }
 
     .note {
       margin-top: 10px;
-      color: #6b7280;
-      font-size: 14px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .footer {
-      padding-top: 22px;
-      border-top: 1px solid #e5e7eb;
-      text-align: center;
-      color: #6b7280;
-      font-size: 14px;
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: inline-flex;
+      }
+
+      .mobile-menu.open {
+        display: block;
+      }
+
+      .hero {
+        padding: 34px 26px;
+      }
+
+      .highlight-grid,
+      .edu-grid,
+      .award-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .item-header {
+        display: block;
+      }
+
+      .time {
+        display: inline-flex;
+        margin-top: 8px;
+      }
     }
 
-    @media (max-width: 700px) {
-      .container {
-        margin: 0;
-        padding: 26px 20px;
-        border-radius: 0;
-      }
-
-      .name {
-        font-size: 32px;
-      }
-
-      h2 {
-        font-size: 21px;
-      }
-
-      table {
+    @media (max-width: 560px) {
+      body {
         font-size: 14px;
       }
 
-      th, td {
-        padding: 9px 8px;
+      .wrap {
+        padding: 18px 14px 30px;
+      }
+
+      .hero {
+        border-radius: 20px;
+      }
+
+      .section-card {
+        padding: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
-    <header>
-      <h1 class="name">周继龙</h1>
-      <p class="position">计算数学专业硕士 | 强化学习 | 科学计算 | 曲面网格生成 | 计算几何</p>
-      <div class="contact">
-        <span>邮箱：mianhuazjl@163.com</span>
-        <span>GitHub：<a href="https://github.com/mianhuazjl" target="_blank">github.com/mianhuazjl</a></span>
-        <span>所在地：江苏南京</span>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">周继龙 · 个人主页</a>
+      <div class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#education">教育经历</a>
+        <a href="#projects">项目经历</a>
+        <a href="#courses">课程成绩</a>
+        <a href="#skills">技能</a>
+        <a href="#awards">荣誉奖励</a>
+        <a href="#publications">成果</a>
+      </div>
+      <button class="menu-button" id="menuButton" type="button">菜单</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">关于我</a>
+      <a href="#education">教育经历</a>
+      <a href="#projects">项目经历</a>
+      <a href="#courses">课程成绩</a>
+      <a href="#skills">技能</a>
+      <a href="#awards">荣誉奖励</a>
+      <a href="#publications">成果</a>
+    </div>
+  </nav>
+
+  <main class="wrap" id="top">
+    <header class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">东南大学 · 数学专业硕士</div>
+        <h1 class="name">周继龙</h1>
+        <p class="position">计算数学方向 | 强化学习 | 科学计算 | 曲面网格生成 | 计算几何 | AI 应用开发</p>
+        <div class="contact">
+  <a href="mailto:mianhuazjl@163.com">邮箱：mianhuazjl@163.com</a>
+  <a href="tel:13952156791">电话：13952156791</a>
+  <a href="https://github.com/mianhuazjl" target="_blank">GitHub：mianhuazjl</a>
+  <span>所在地：江苏南京</span>
+</div>
       </div>
     </header>
 
-    <section>
-      <h2>个人简介</h2>
-      <p>
-        我是东南大学数学专业硕士研究生，主要关注强化学习、科学计算、曲面网格生成、机器学习与计算几何, 以及进行相关的AI大模型相关的算法实习。
-        具备数学建模、算法实验、科研论文写作与工程实现经验，熟悉 MATLAB、Python、PyTorch、FastAPI、LaTeX 等工具。
-        当前研究围绕共形参数化与强化学习驱动的曲面网格自动生成方法展开。
-      </p>
-    </section>
-
-    <section>
-      <h2>教育经历</h2>
-      <div class="item">
-        <div class="item-header">
-          <h3>东南大学 | 数学专业硕士</h3>
-          <span class="time">2023.09 - 2026.06</span>
-        </div>
-        <p>研究方向：强化学习、科学计算、曲面网格生成。</p>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <strong>SEU 硕士</strong>
+        <span>数学专业，研究方向为科学计算与曲面网格生成</span>
       </div>
-      <div class="item">
-        <div class="item-header">
-          <h3>中国石油大学（华东） | 信息与计算科学本科</h3>
-          <span class="time">2019.09 - 2023.06</span>
-        </div>
-        <p>专业基础：数学分析、高等代数、数值计算、最优化、数学建模与程序设计。</p>
+      <div class="highlight-card">
+        <strong>RL-Mesh</strong>
+        <span>共形参数化 + 强化学习驱动曲面网格生成</span>
       </div>
-    </section>
-
-    <section>
-      <h2>项目经历</h2>
-
-      <div class="item">
-        <div class="item-header">
-          <h3>基于共形参数化与强化学习的曲面网格生成方法</h3>
-          <span class="time">2024.10 - 至今</span>
-        </div>
-        <ul>
-          <li>面向复杂曲面网格生成问题，构建从曲面共形参数化、参数域自适应网格剖分到三维曲面逆映射的完整流程。</li>
-          <li>将前沿推进式三角网格生成过程建模为马尔可夫决策过程，设计状态表示、动作空间和层次化奖励函数。</li>
-          <li>结合 PPO、课程学习与探索机制，提高智能体在复杂边界与自适应尺寸场下的网格生成能力。</li>
-          <li>使用最小角、最大角、长宽比、形状质量、尺寸误差等指标对生成网格进行定量评估。</li>
-        </ul>
+      <div class="highlight-card">
+        <strong>AI 应用</strong>
+        <span>FastAPI、RAG、LLM 智能助手与代码审查</span>
       </div>
-
-      <div class="item">
-        <div class="item-header">
-          <h3>中信建投证券网厅对账单业务办理智能助手开发</h3>
-          <span class="time">2025.07 - 2025.09</span>
-        </div>
-        <ul>
-          <li>开发面向证券网厅对账单业务的智能对话助手，引导用户完成对账单生成流程。</li>
-          <li>采用 FastAPI 构建后端服务，集成大语言模型能力，实现自然语言交互与业务流程编排。</li>
-          <li>对接登录验证、业务查询与对账单生成等接口，提升业务办理流程的自动化程度。</li>
-        </ul>
+      <div class="highlight-card">
+        <strong>数学建模</strong>
+        <span>华为杯研究生数学建模二等奖等竞赛经历</span>
       </div>
+    </div>
 
-      <div class="item">
-        <div class="item-header">
-          <h3>code-review-robot AI 代码审查系统</h3>
-          <span class="time">2025.07 - 2025.09</span>
+    <section id="about">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>关于我</h2>
         </div>
-        <ul>
-          <li>构建基于 RAG 的代码审查机器人，支持 GitLab Push/MR 事件触发后的自动化代码审查。</li>
-          <li>实时拉取变更代码，结合编码规范知识库生成语言专属提示词，并调用大语言模型输出审查意见。</li>
-          <li>将问题分级、修复建议与审查结果写入数据库，并通过邮件同步给项目负责人。</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <h3>绝缘子异常检测</h3>
-          <span class="time">2023.11 - 2024.06</span>
-        </div>
-        <ul>
-          <li>面向国网江苏省电力有限公司电力科学研究院相关数据，设计绝缘子周期分割与异常检测流程。</li>
-          <li>针对周期长度差异与尖点密集分布问题，开发周期分割算法，提高后续特征分析的稳定性。</li>
-          <li>基于精准周期分割结果，使用高斯 SVM 进行异常检测，实现超过 90% 的异常识别效果。</li>
-        </ul>
+        <p class="about-text">
+          我是东南大学数学专业硕士研究生，主要关注强化学习、科学计算、曲面网格生成、机器学习与计算几何，也参与 AI 大模型相关算法实习与工程应用开发。具备数学建模、算法实验、科研论文写作与工程实现经验，熟悉 MATLAB、Python、PyTorch、FastAPI、LaTeX 等工具。当前研究围绕共形参数化与强化学习驱动的曲面网格自动生成方法展开。
+        </p>
       </div>
     </section>
 
-    <section>
-      <h2>课程成绩</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>阶段</th>
-            <th>课程</th>
-            <th>成绩</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>研究生</td>
-            <td>高等数值分析</td>
-            <td>93</td>
-          </tr>
-          <tr>
-            <td>研究生</td>
-            <td>组合最优化</td>
-            <td>96</td>
-          </tr>
-          <tr>
-            <td>研究生</td>
-            <td>最优化理论与方法</td>
-            <td>94</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>数学分析</td>
-            <td>97</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>高等代数</td>
-            <td>93</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>高性能并行计算</td>
-            <td>94</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>高性能并行计算</td>
-            <td>94</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>概率论与数理统计</td>
-            <td>96</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>最优化方法</td>
-            <td>95</td>
-          </tr>
-          <tr>
-            <td>本科</td>
-            <td>神经网络</td>
-            <td>92</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>技能</h2>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">MATLAB</span>
-        <span class="tag">FastAPI</span>
-        <span class="tag">RAG</span>
-        <span class="tag">LLM 应用</span>
-        <span class="tag">机器学习</span>
-        <span class="tag">强化学习</span>
-        <span class="tag">数值计算</span>
-        <span class="tag">计算几何</span>
-        <span class="tag">曲面网格生成</span>
-        <span class="tag">LaTeX</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>荣誉奖励</h2>
-      <ul>
-        <li>“华为杯”第二十届中国研究生数学建模竞赛二等奖</li>
-        <li>“全国第四届研究生工业与经济金融大数据建模与计算大赛”三等奖</li>
-        <li>美国大学生数学建模竞赛 Honorable Mention</li>
-        <li>第十四届全国大学生数学竞赛（数学 B 类）一等奖</li>
-        <li>第十三届全国大学生数学竞赛（数学 B 类）二等奖</li>
-        <li>山东省大学生数学竞赛二等奖 / 一等奖</li>
-        <li>综合优秀二等奖学金、综合优秀三等奖学金</li>
-        <li>本科阶段获得连续四年的“优秀学生”称号</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>论文与成果</h2>
-      <div class="item">
-        <div class="item-header">
-          <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
-          <span class="time">硕士学位论文</span>
+    <section id="education">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>教育经历</h2>
         </div>
-        <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习建模、自适应尺寸场与网格质量优化方法。</p>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
-          <span class="time">专利在审</span>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div class="item-header">
+              <h3>东南大学 | 数学专业硕士</h3>
+              <span class="time">2023.09 - 2026.06</span>
+            </div>
+            <p class="meta">研究方向：强化学习、科学计算、曲面网格生成。</p>
+            <p>围绕曲面共形参数化、参数域自适应剖分、逆映射回三维曲面与网格质量优化开展研究。</p>
+          </div>
+          <div class="edu-card">
+            <div class="item-header">
+              <h3>中国石油大学（华东） | 信息与计算科学本科</h3>
+              <span class="time">2019.09 - 2023.06</span>
+            </div>
+            <p class="meta">专业基础：数学分析、高等代数、数值计算、最优化、数学建模与程序设计。</p>
+            <p>本科阶段接受数学建模、数值算法与程序设计训练，为后续科学计算与机器学习方向研究奠定基础。</p>
+          </div>
         </div>
-        <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习建模、自适应尺寸场与网格质量优化方法。</p>
-      </div>
-      <div class="item">
-        <div class="item-header">
-          <h3>The Formulation of Investment Strategy Based on ARIMA Model</h3>
-          <span class="time">ICIDC 2022</span>
-        </div>
-        <p>发表于 2022 年信息经济、数据建模与云计算国际学术会议。</p>
       </div>
     </section>
 
-    <section>
-      <h2>联系方式</h2>
-      <p>邮箱：mianhuazjl@163.com</p>
-      <p>GitHub：<a href="https://github.com/mianhuazjl" target="_blank">https://github.com/mianhuazjl</a></p>
+    <section id="projects">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>项目经历</h2>
+        </div>
+
+        <div class="project-card">
+          <div class="item-header">
+            <h3>基于共形参数化与强化学习的曲面网格生成方法</h3>
+            <span class="time">2024.10 - 至今</span>
+          </div>
+          <ul>
+            <li>面向复杂曲面网格生成问题，构建从曲面共形参数化、参数域自适应网格剖分到三维曲面逆映射的完整流程。</li>
+            <li>将前沿推进式三角网格生成过程建模为马尔可夫决策过程，设计状态表示、动作空间和层次化奖励函数。</li>
+            <li>结合 PPO、课程学习与探索机制，提高智能体在复杂边界与自适应尺寸场下的网格生成能力。</li>
+            <li>使用最小角、最大角、长宽比、形状质量、尺寸误差等指标对生成网格进行定量评估。</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="item-header">
+            <h3>中信建投证券网厅对账单业务办理智能助手开发</h3>
+            <span class="time">2025.07 - 2025.09</span>
+          </div>
+          <ul>
+            <li>开发面向证券网厅对账单业务的智能对话助手，引导用户完成对账单生成流程。</li>
+            <li>采用 FastAPI 构建后端服务，集成大语言模型能力，实现自然语言交互与业务流程编排。</li>
+            <li>对接登录验证、业务查询与对账单生成等接口，提升业务办理流程的自动化程度。</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="item-header">
+            <h3>code-review-robot AI 代码审查系统</h3>
+            <span class="time">2025.07 - 2025.09</span>
+          </div>
+          <ul>
+            <li>构建基于 RAG 的代码审查机器人，支持 GitLab Push/MR 事件触发后的自动化代码审查。</li>
+            <li>实时拉取变更代码，结合编码规范知识库生成语言专属提示词，并调用大语言模型输出审查意见。</li>
+            <li>将问题分级、修复建议与审查结果写入数据库，并通过邮件同步给项目负责人。</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="item-header">
+            <h3>绝缘子异常检测</h3>
+            <span class="time">2023.11 - 2024.06</span>
+          </div>
+          <ul>
+            <li>面向国网江苏省电力有限公司电力科学研究院相关数据，设计绝缘子周期分割与异常检测流程。</li>
+            <li>针对周期长度差异与尖点密集分布问题，开发周期分割算法，提高后续特征分析的稳定性。</li>
+            <li>基于精准周期分割结果，使用高斯 SVM 进行异常检测，实现超过 90% 的异常识别效果。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>课程成绩</h2>
+        </div>
+        <p class="section-desc">仅展示与数学基础、优化、科学计算和机器学习方向强相关的代表性课程。</p>
+        <div class="course-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>阶段</th>
+                <th>课程</th>
+                <th>成绩</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>研究生</td>
+                <td>高等数值分析</td>
+                <td><span class="score">93</span></td>
+              </tr>
+              <tr>
+                <td>研究生</td>
+                <td>组合最优化</td>
+                <td><span class="score">96</span></td>
+              </tr>
+              <tr>
+                <td>研究生</td>
+                <td>最优化理论与方法</td>
+                <td><span class="score">94</span></td>
+              </tr>
+              <tr>
+                <td>本科</td>
+                <td>数学分析</td>
+                <td><span class="score">97</span></td>
+              </tr>
+              <tr>
+                <td>本科</td>
+                <td>高等代数</td>
+                <td><span class="score">93</span></td>
+              </tr>
+              <tr>
+                <td>本科</td>
+                <td>高性能并行计算</td>
+                <td><span class="score">94</span></td>
+              </tr>
+              <tr>
+                <td>本科</td>
+                <td>概率论与数理统计</td>
+                <td><span class="score">96</span></td>
+              </tr>
+              <tr>
+                <td>本科</td>
+                <td>最优化方法</td>
+                <td><span class="score">95</span></td>
+              </tr>
+              <tr>
+                <td>本科</td>
+                <td>神经网络</td>
+                <td><span class="score">92</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>技能</h2>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">LLM 应用</span>
+          <span class="tag">机器学习</span>
+          <span class="tag">强化学习</span>
+          <span class="tag">PPO</span>
+          <span class="tag">数值计算</span>
+          <span class="tag">计算几何</span>
+          <span class="tag">曲面网格生成</span>
+          <span class="tag">LaTeX</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>荣誉奖励</h2>
+        </div>
+        <div class="award-grid">
+          <div class="award-item">“华为杯”第二十届中国研究生数学建模竞赛二等奖</div>
+          <div class="award-item">全国第四届研究生工业与经济金融大数据建模与计算大赛三等奖</div>
+          <div class="award-item">美国大学生数学建模竞赛 Honorable Mention</div>
+          <div class="award-item">第十四届全国大学生数学竞赛（数学 B 类）一等奖</div>
+          <div class="award-item">第十三届全国大学生数学竞赛（数学 B 类）二等奖</div>
+          <div class="award-item">山东省大学生数学竞赛一等奖 / 二等奖</div>
+          <div class="award-item">综合优秀二等奖学金、综合优秀三等奖学金</div>
+          <div class="award-item">本科阶段连续四年获得“优秀学生”称号</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>论文与成果</h2>
+        </div>
+        <div class="result-card">
+          <div class="item-header">
+            <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
+            <span class="time">硕士学位论文</span>
+          </div>
+          <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习建模、自适应尺寸场与网格质量优化方法。</p>
+        </div>
+        <div class="result-card">
+          <div class="item-header">
+            <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
+            <span class="time">专利在审</span>
+          </div>
+          <p>围绕复杂曲面自动网格生成流程，凝练共形参数化、强化学习决策与逆映射回曲面等关键技术方案。</p>
+        </div>
+        <div class="result-card">
+          <div class="item-header">
+            <h3>The Formulation of Investment Strategy Based on ARIMA Model</h3>
+            <span class="time">ICIDC 2022</span>
+          </div>
+          <p>发表于 2022 年信息经济、数据建模与云计算国际学术会议。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-card">
+        <div class="section-title">
+          <h2>联系方式</h2>
+        </div>
+        <p>邮箱：<a href="mailto:mianhuazjl@163.com" style="color: var(--primary);">mianhuazjl@163.com</a></p>
+        <p>GitHub：<a href="https://github.com/mianhuazjl" target="_blank" style="color: var(--primary);">https://github.com/mianhuazjl</a></p>
+      </div>
     </section>
 
     <div class="footer">
       <p>© 2026 周继龙. Powered by GitHub Pages.</p>
     </div>
   </main>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
