@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人简历 | 周继龙</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.75;
+      color: #222;
+      background: #f4f6f8;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 42px;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      padding-bottom: 28px;
+      margin-bottom: 34px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .name {
+      font-size: 42px;
+      font-weight: 750;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .position {
+      font-size: 18px;
+      color: #374151;
+      margin-bottom: 14px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    section {
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #111827;
+      margin-bottom: 16px;
+      padding-left: 12px;
+      border-left: 5px solid #2563eb;
+    }
+
+    .item {
+      margin-bottom: 22px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #1f2937;
+    }
+
+    .time {
+      color: #6b7280;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin-left: 22px;
+      margin-top: 6px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #eef3ff;
+      color: #1d4ed8;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f3f4f6;
+      color: #111827;
+      font-weight: 650;
+    }
+
+    .note {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .footer {
+      padding-top: 22px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        margin: 0;
+        padding: 26px 20px;
+        border-radius: 0;
+      }
+
+      .name {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: 9px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <h1 class="name">周继龙</h1>
+      <p class="position">计算数学专业硕士 | 强化学习 | 科学计算 | 曲面网格生成 | 计算几何</p>
+      <div class="contact">
+        <span>邮箱：mianhuazjl@163.com</span>
+        <span>GitHub：<a href="https://github.com/mianhuazjl" target="_blank">github.com/mianhuazjl</a></span>
+        <span>所在地：江苏南京</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>个人简介</h2>
+      <p>
+        我是东南大学数学专业硕士研究生，主要关注强化学习、科学计算、曲面网格生成、机器学习与计算几何, 以及进行相关的AI大模型相关的算法实习。
+        具备数学建模、算法实验、科研论文写作与工程实现经验，熟悉 MATLAB、Python、PyTorch、FastAPI、LaTeX 等工具。
+        当前研究围绕共形参数化与强化学习驱动的曲面网格自动生成方法展开。
+      </p>
+    </section>
+
+    <section>
+      <h2>教育经历</h2>
+      <div class="item">
+        <div class="item-header">
+          <h3>东南大学 | 数学专业硕士</h3>
+          <span class="time">2023.09 - 2026.06</span>
+        </div>
+        <p>研究方向：强化学习、科学计算、曲面网格生成。</p>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <h3>中国石油大学（华东） | 信息与计算科学本科</h3>
+          <span class="time">2019.09 - 2023.06</span>
+        </div>
+        <p>专业基础：数学分析、高等代数、数值计算、最优化、数学建模与程序设计。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>项目经历</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <h3>基于共形参数化与强化学习的曲面网格生成方法</h3>
+          <span class="time">2024.10 - 至今</span>
+        </div>
+        <ul>
+          <li>面向复杂曲面网格生成问题，构建从曲面共形参数化、参数域自适应网格剖分到三维曲面逆映射的完整流程。</li>
+          <li>将前沿推进式三角网格生成过程建模为马尔可夫决策过程，设计状态表示、动作空间和层次化奖励函数。</li>
+          <li>结合 PPO、课程学习与探索机制，提高智能体在复杂边界与自适应尺寸场下的网格生成能力。</li>
+          <li>使用最小角、最大角、长宽比、形状质量、尺寸误差等指标对生成网格进行定量评估。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3>中信建投证券网厅对账单业务办理智能助手开发</h3>
+          <span class="time">2025.07 - 2025.09</span>
+        </div>
+        <ul>
+          <li>开发面向证券网厅对账单业务的智能对话助手，引导用户完成对账单生成流程。</li>
+          <li>采用 FastAPI 构建后端服务，集成大语言模型能力，实现自然语言交互与业务流程编排。</li>
+          <li>对接登录验证、业务查询与对账单生成等接口，提升业务办理流程的自动化程度。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3>code-review-robot AI 代码审查系统</h3>
+          <span class="time">2025.07 - 2025.09</span>
+        </div>
+        <ul>
+          <li>构建基于 RAG 的代码审查机器人，支持 GitLab Push/MR 事件触发后的自动化代码审查。</li>
+          <li>实时拉取变更代码，结合编码规范知识库生成语言专属提示词，并调用大语言模型输出审查意见。</li>
+          <li>将问题分级、修复建议与审查结果写入数据库，并通过邮件同步给项目负责人。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <h3>绝缘子异常检测</h3>
+          <span class="time">2023.11 - 2024.06</span>
+        </div>
+        <ul>
+          <li>面向国网江苏省电力有限公司电力科学研究院相关数据，设计绝缘子周期分割与异常检测流程。</li>
+          <li>针对周期长度差异与尖点密集分布问题，开发周期分割算法，提高后续特征分析的稳定性。</li>
+          <li>基于精准周期分割结果，使用高斯 SVM 进行异常检测，实现超过 90% 的异常识别效果。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>课程成绩</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>课程</th>
+            <th>成绩</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>研究生</td>
+            <td>高等数值分析</td>
+            <td>93</td>
+          </tr>
+          <tr>
+            <td>研究生</td>
+            <td>组合最优化</td>
+            <td>96</td>
+          </tr>
+          <tr>
+            <td>研究生</td>
+            <td>最优化理论与方法</td>
+            <td>94</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>数学分析</td>
+            <td>97</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>高等代数</td>
+            <td>93</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>高性能并行计算</td>
+            <td>94</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>高性能并行计算</td>
+            <td>94</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>概率论与数理统计</td>
+            <td>96</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>最优化方法</td>
+            <td>95</td>
+          </tr>
+          <tr>
+            <td>本科</td>
+            <td>神经网络</td>
+            <td>92</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>技能</h2>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">RAG</span>
+        <span class="tag">LLM 应用</span>
+        <span class="tag">机器学习</span>
+        <span class="tag">强化学习</span>
+        <span class="tag">数值计算</span>
+        <span class="tag">计算几何</span>
+        <span class="tag">曲面网格生成</span>
+        <span class="tag">LaTeX</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>荣誉奖励</h2>
+      <ul>
+        <li>“华为杯”第二十届中国研究生数学建模竞赛二等奖</li>
+        <li>“全国第四届研究生工业与经济金融大数据建模与计算大赛”三等奖</li>
+        <li>美国大学生数学建模竞赛 Honorable Mention</li>
+        <li>第十四届全国大学生数学竞赛（数学 B 类）一等奖</li>
+        <li>第十三届全国大学生数学竞赛（数学 B 类）二等奖</li>
+        <li>山东省大学生数学竞赛二等奖 / 一等奖</li>
+        <li>综合优秀二等奖学金、综合优秀三等奖学金</li>
+        <li>本科阶段获得连续四年的“优秀学生”称号</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>论文与成果</h2>
+      <div class="item">
+        <div class="item-header">
+          <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
+          <span class="time">硕士学位论文</span>
+        </div>
+        <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习建模、自适应尺寸场与网格质量优化方法。</p>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
+          <span class="time">专利在审</span>
+        </div>
+        <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习建模、自适应尺寸场与网格质量优化方法。</p>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <h3>The Formulation of Investment Strategy Based on ARIMA Model</h3>
+          <span class="time">ICIDC 2022</span>
+        </div>
+        <p>发表于 2022 年信息经济、数据建模与云计算国际学术会议。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>联系方式</h2>
+      <p>邮箱：mianhuazjl@163.com</p>
+      <p>GitHub：<a href="https://github.com/mianhuazjl" target="_blank">https://github.com/mianhuazjl</a></p>
+    </section>
+
+    <div class="footer">
+      <p>© 2026 周继龙. Powered by GitHub Pages.</p>
+    </div>
+  </main>
+</body>
+</html>
