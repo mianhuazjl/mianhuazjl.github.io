@@ -624,7 +624,19 @@
         <div class="section-title">
           <h2>项目经历</h2>
         </div>
-
+        <div class="project-card">
+  <div class="item-header">
+    <h3>香港中文大学(深圳) & 深圳大数据研究院 | 科研助理</h3>
+    <span class="time">2026.05 - 至今</span>
+  </div>
+  <p class="meta">项目方向：面向 6G 无线信道建模的多模态几何面元重建与射线追踪栅格地图生成</p>
+  <ul>
+    <li><strong>背景与目标：</strong>针对 6G/Sub-THz 高频段无线数字孪生对场景高精度物理几何与电磁属性的强依赖需求，研究基于视觉语义与点云几何融合的 3D 场景重建技术，构建适用于射线追踪（Ray Tracing, RT）的高保真全要素栅格地图。</li>
+    <li><strong>面元化 3DGS 几何重建（借鉴 PGSR）：</strong>基于 3D Gaussian Splatting (3DGS) 框架，引入椭球各向异性扁平化约束（Scale Flattening）与无偏深度渲染（Unbiased Depth Rendering），将离散高斯椭球压缩拟合为贴合真实物理表面的 2D 平面面元（Planar Facets），解决传统 3DGS 体素渲染缺乏确切射线求交曲面的痛点。</li>
+    <li><strong>多模态语义蒸馏与属性绑定（借鉴 SAGA）：</strong>结合 SAM/DINO 等 2D 视觉基础模型，通过尺度感知对比学习（Scale-Aware Contrastive Learning）将视觉语义与材质亲和特征（Affinity Features）蒸馏并绑定至显式高斯基元（Gaussian Primitives），实现自动化的场景材质分割与电磁介电常数/电导率（Permittivity & Conductivity）参数映射。</li>
+    <li><strong>可微射线追踪与信道验证（借鉴 Differentiable Gaussian RT）：</strong>基于 GPU 硬件加速实现高斯面元射线求交与多跳路径追溯（Multi-bounce Path Tracing），结合单/多视图几何正则化（Geometric Regularization）提升面元表面的法向量一致性与拓扑连续性；基于测量/模拟的信道冲激响应（CIR）与功率延时谱（PDP）对重构面元几何进行交叉验证与优化。</li>
+  </ul>
+</div>
         <div class="project-card">
           <div class="item-header">
             <h3>基于共形参数化与强化学习的曲面网格生成方法</h3>
