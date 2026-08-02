@@ -459,12 +459,6 @@
       border: 1px solid var(--line);
     }
 
-    .note {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
     @media (max-width: 860px) {
       .nav-links {
         display: none;
@@ -530,7 +524,7 @@
       <div class="nav-links">
         <a href="#about">关于我</a>
         <a href="#education">教育经历</a>
-        <a href="#projects">项目经历</a>
+        <a href="#projects">科研与项目经历</a>
         <a href="#courses">课程成绩</a>
         <a href="#skills">技能</a>
         <a href="#awards">荣誉奖励</a>
@@ -541,7 +535,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#about">关于我</a>
       <a href="#education">教育经历</a>
-      <a href="#projects">项目经历</a>
+      <a href="#projects">科研与项目经历</a>
       <a href="#courses">课程成绩</a>
       <a href="#skills">技能</a>
       <a href="#awards">荣誉奖励</a>
@@ -554,31 +548,31 @@
       <div class="hero-content">
         <div class="eyebrow">东南大学 · 数学专业硕士</div>
         <h1 class="name">周继龙</h1>
-        <p class="position">计算数学方向 | 强化学习 | 科学计算 | 曲面网格生成 | 计算几何 | AI 应用开发</p>
+        <p class="position">计算数学 | 3D Gaussian Splatting | 6G 射线追踪 | 强化学习 | AI 应用开发</p>
         <div class="contact">
-  <a href="mailto:mianhuazjl@163.com">邮箱：mianhuazjl@163.com</a>
-  <a href="https://github.com/mianhuazjl" target="_blank">GitHub：mianhuazjl</a>
-  <span>所在地：江苏南京</span>
-</div>
+          <a href="mailto:mianhuazjl@163.com">邮箱：mianhuazjl@163.com</a>
+          <a href="https://github.com/mianhuazjl" target="_blank">GitHub：mianhuazjl</a>
+          <span>所在地：江苏南京 / 深圳</span>
+        </div>
       </div>
     </header>
 
     <div class="highlight-grid">
       <div class="highlight-card">
-        <strong>SEU 硕士</strong>
-        <span>数学专业，研究方向为科学计算与曲面网格生成</span>
+        <strong>SEU 硕士 / CUHK-SZ RA</strong>
+        <span>数学专业，研究方向为 3D 几何重建、6G 数字孪生与科学计算</span>
+      </div>
+      <div class="highlight-card">
+        <strong>3DGS & Ray Tracing</strong>
+        <span>面向 6G 射线追踪的多模态 Gaussian 面元重构与信道建模</span>
       </div>
       <div class="highlight-card">
         <strong>RL-Mesh</strong>
         <span>共形参数化 + 强化学习驱动曲面网格生成</span>
       </div>
       <div class="highlight-card">
-        <strong>AI 应用</strong>
-        <span>FastAPI、RAG、LLM 智能助手与代码审查</span>
-      </div>
-      <div class="highlight-card">
-        <strong>数学建模能力</strong>
-        <span>华为杯研究生数学建模二等奖、全国经济与金融大数据建模竞赛三等奖、美国大学生数学建模竞赛H奖等数学建模竞赛获奖经历</span>
+        <strong>AI 应用全栈</strong>
+        <span>FastAPI、RAG 向量检索、LLM 对话助手与自动化代码审查系统</span>
       </div>
     </div>
 
@@ -588,7 +582,7 @@
           <h2>关于我</h2>
         </div>
         <p class="about-text">
-          我是东南大学数学专业硕士研究生，主要关注强化学习、科学计算、曲面网格生成、机器学习与计算几何，也参与 AI 大模型相关算法实习与工程应用开发。具备数学建模、算法实验、科研论文写作与工程实现经验，熟悉 MATLAB、Python、PyTorch、FastAPI、LaTeX 等工具。当前研究围绕共形参数化与强化学习驱动的曲面网格自动生成方法展开。
+          我是东南大学数学专业硕士研究生，目前在香港中文大学(深圳)与深圳大数据研究院担任科研助理。我的主要研究兴趣包括 **3D Gaussian Splatting (3DGS)、可微射线追踪（Differentiable Ray Tracing）、6G 无线数字孪生信道建模、曲面几何重建与强化学习**。具备扎实的数学建模能力、计算几何背景与工程落地经验，熟练掌握 PyTorch、FastAPI、MATLAB、LaTeX 等工具，致力于探索基于视觉与点云多模态信息的 3D 物理场景智能感知与高精度重建。
         </p>
       </div>
     </section>
@@ -605,7 +599,7 @@
               <span class="time">2023.09 - 2026.06</span>
             </div>
             <p class="meta">研究方向：强化学习、科学计算、曲面网格生成。</p>
-            <p>围绕曲面共形参数化、参数域自适应剖分、逆映射回三维曲面与网格质量优化开展研究。利用强化学习，实现了高质量的曲面网格自动化生成，为CAE分析中的重要环节的智能化提供了新的技术路径。</p>
+            <p>围绕曲面共形参数化、参数域自适应剖分、逆映射回三维曲面与网格质量优化开展研究。利用强化学习，实现了高质量的曲面网格自动化生成，为 CAE 分析中的重要环节智能化提供了新的技术路径。</p>
           </div>
           <div class="edu-card">
             <div class="item-header">
@@ -622,21 +616,23 @@
     <section id="projects">
       <div class="section-card">
         <div class="section-title">
-          <h2>项目经历</h2>
+          <h2>科研与项目经历</h2>
         </div>
+
         <div class="project-card">
-  <div class="item-header">
-    <h3>香港中文大学(深圳) & 深圳大数据研究院 | 科研助理</h3>
-    <span class="time">2026.05 - 至今</span>
-  </div>
-  <p class="meta">项目方向：面向 6G 无线信道建模的多模态几何面元重建与射线追踪栅格地图生成</p>
-  <ul>
-    <li><strong>背景与目标：</strong>针对 6G/Sub-THz 高频段无线数字孪生对场景高精度物理几何与电磁属性的强依赖需求，研究基于视觉语义与点云几何融合的 3D 场景重建技术，构建适用于射线追踪（Ray Tracing, RT）的高保真全要素栅格地图。</li>
-    <li><strong>面元化 3DGS 几何重建（借鉴 PGSR）：</strong>基于 3D Gaussian Splatting (3DGS) 框架，引入椭球各向异性扁平化约束（Scale Flattening）与无偏深度渲染（Unbiased Depth Rendering），将离散高斯椭球压缩拟合为贴合真实物理表面的 2D 平面面元（Planar Facets），解决传统 3DGS 体素渲染缺乏确切射线求交曲面的痛点。</li>
-    <li><strong>多模态语义蒸馏与属性绑定（借鉴 SAGA）：</strong>结合 SAM/DINO 等 2D 视觉基础模型，通过尺度感知对比学习（Scale-Aware Contrastive Learning）将视觉语义与材质亲和特征（Affinity Features）蒸馏并绑定至显式高斯基元（Gaussian Primitives），实现自动化的场景材质分割与电磁介电常数/电导率（Permittivity & Conductivity）参数映射。</li>
-    <li><strong>可微射线追踪与信道验证（借鉴 Differentiable Gaussian RT）：</strong>基于 GPU 硬件加速实现高斯面元射线求交与多跳路径追溯（Multi-bounce Path Tracing），结合单/多视图几何正则化（Geometric Regularization）提升面元表面的法向量一致性与拓扑连续性；基于测量/模拟的信道冲激响应（CIR）与功率延时谱（PDP）对重构面元几何进行交叉验证与优化。</li>
-  </ul>
-</div>
+          <div class="item-header">
+            <h3>香港中文大学(深圳) & 深圳大数据研究院 | 科研助理</h3>
+            <span class="time">2026.05 - 至今</span>
+          </div>
+          <p class="meta"><strong>研究方向：</strong>面向 6G 网络环境基于多模态的几何面元重构与射线追踪地图生成</p>
+          <ul>
+            <li><strong>项目背景：</strong>主要研究针对 6G 网络环境下基于多模态的几何面元重构。针对 6G 信道建模对高精度模型的需求，基于视觉语义信息及点云的几何信息，生成具有适用于 6G 无线网络环境射线追踪所用的全要素、高保真栅格地图。</li>
+            <li><strong>面元化几何重构：</strong>针对 3DGS 在物理曲面建模与光线求交上的不足，引入平面高斯面元（Planar Facets）拟合场景显式表面，通过平面约束与法向量正则化确保曲面拓扑连续，赋予高斯基元确切的射线求交（Ray Intersection）能力。</li>
+            <li><strong>多模态语义与电磁映射：</strong>结合 SAM/DINO 等 2D 视觉基础模型，通过尺度感知对比学习（Scale-Aware Contrastive Learning）将视觉语义与材质亲和特征（Affinity Features）蒸馏并绑定至显式高斯基元（Gaussian Primitives），实现自动化的场景材质分割与电磁介电常数/电导率（Permittivity & Conductivity）参数映射。</li>
+            <li><strong>可微射线追踪与信道验证：</strong>构建基于高斯面元硬件加速的射线求交与多跳反射路径追溯（Multi-bounce Path Tracing），结合真实/模拟的信道冲激响应（CIR）与功率延时谱（PDP）对重构几何及电磁参数进行物理拟合与交叉验证。</li>
+          </ul>
+        </div>
+
         <div class="project-card">
           <div class="item-header">
             <h3>基于共形参数化与强化学习的曲面网格生成方法</h3>
@@ -646,7 +642,7 @@
             <li>面向复杂曲面网格生成问题，构建从曲面共形参数化、参数域自适应网格剖分到三维曲面逆映射的完整流程。</li>
             <li>将前沿推进式三角网格生成过程建模为马尔可夫决策过程，设计状态表示、动作空间和层次化奖励函数。</li>
             <li>结合 PPO、课程学习与探索机制，提高智能体在复杂边界与自适应尺寸场下的网格生成能力。</li>
-            <li>使用最小角、最大角、长宽比、形状质量、尺寸误差等指标对生成网格进行定量评估。在和开源软件包distmesh对比中 ，在13个模型78个指标中我们提出的方法有66项目占优</li>
+            <li>使用最小角、最大角、长宽比、形状质量、尺寸误差等指标对生成网格进行定量评估。在与开源软件包 distmesh 对比中，在 13 个模型 78 个指标中提出的方法有 66 项占优。</li>
           </ul>
         </div>
 
@@ -655,13 +651,13 @@
             <h3>中信建投证券网厅对账单业务办理智能助手开发</h3>
             <span class="time">2025.07 - 2025.09</span>
           </div>
-         <ul>
-  <li>开发面向证券网厅对账单业务的智能对话助手，引导用户完成登录验证、账户选择、时间范围确认与对账单生成等流程。</li>
-  <li>采用 FastAPI 构建后端服务，封装对话接口、业务接口调用、参数校验与异常返回逻辑。</li>
-  <li>集成大语言模型能力，识别用户自然语言意图，抽取业务办理所需参数，并根据上下文进行多轮追问与确认。</li>
-  <li>对接登录验证、客户信息查询、账户查询与对账单生成等证券业务系统 API，实现从用户咨询到业务办理的自动化闭环。</li>
-  <li>设计会话状态管理逻辑，记录用户当前办理阶段、已确认参数和待补充信息，提高多轮对话流程的稳定性。</li>
-</ul>
+          <ul>
+            <li>开发面向证券网厅对账单业务的智能对话助手，引导用户完成登录验证、账户选择、时间范围确认与对账单生成等流程。</li>
+            <li>采用 FastAPI 构建后端服务，封装对话接口、业务接口调用、参数校验与异常返回逻辑。</li>
+            <li>集成大语言模型能力，识别用户自然语言意图，抽取业务办理所需参数，并根据上下文进行多轮追问与确认。</li>
+            <li>对接登录验证、客户信息查询、账户查询与对账单生成等证券业务系统 API，实现从用户咨询到业务办理的自动化闭环。</li>
+            <li>设计会话状态管理逻辑，记录用户当前办理阶段、已确认参数和待补充信息，提高多轮对话流程的稳定性。</li>
+          </ul>
         </div>
 
         <div class="project-card">
@@ -669,15 +665,13 @@
             <h3>code-review-robot AI 代码审查系统</h3>
             <span class="time">2025.07 - 2025.09</span>
           </div>
-         <ul>
-  <li>构建基于 RAG 的代码审查机器人，支持 GitLab Push/MR 事件触发后的自动化代码审查，实现“代码提交后自动评审”的流程闭环。</li>
-  <li>实时拉取变更代码，并对 diff 内容进行解析、切分与结构化处理，提取文件路径、变更函数、代码上下文和提交信息等关键特征。</li>
-  <li>构建编码规范与历史审查案例知识库，通过向量检索召回相关规范、相似问题与修复示例，为大模型生成审查意见提供上下文支撑。</li>
-  <li>针对代码审查场景整理指令数据，包括问题类型、严重等级、原因分析和修改建议等字段，用于大模型指令微调与提示词优化。</li>
-  <li>结合 LoRA / QLoRA 等轻量化微调思路，提升模型在代码缺陷识别、规范性检查和修复建议生成方面的任务适配能力。</li>
-  <li>设计语言专属 Prompt 模板，将代码上下文、检索结果、项目规范和审查目标统一组织后输入大语言模型，生成结构化评审结果。</li>
-  <li>将问题分级、修复建议与审查结果写入数据库，并通过邮件同步给项目 Owner 或相关开发人员，提高代码审查效率。</li>
-</ul>
+          <ul>
+            <li>构建基于 RAG 的代码审查机器人，支持 GitLab Push/MR 事件触发后的自动化代码审查，实现“代码提交后自动评审”的流程闭环。</li>
+            <li>实时拉取变更代码，并对 diff 内容进行解析、切分与结构化处理，提取文件路径、变更函数、代码上下文和提交信息等关键特征。</li>
+            <li>构建编码规范与历史审查案例知识库，通过向量检索召回相关规范、相似问题与修复示例，为大模型生成审查意见提供上下文支撑。</li>
+            <li>结合 LoRA / QLoRA 等轻量化微调思路，提升模型在代码缺陷识别、规范性检查和修复建议生成方面的任务适配能力。</li>
+            <li>设计语言专属 Prompt 模板，将代码上下文、检索结果、项目规范和审查目标统一组织后输入大语言模型，生成结构化评审结果并回写邮件。</li>
+          </ul>
         </div>
 
         <div class="project-card">
@@ -767,18 +761,17 @@
           <h2>技能</h2>
         </div>
         <div class="tags">
+          <span class="tag">3D Gaussian Splatting (3DGS)</span>
+          <span class="tag">平面高斯面元与射线求交</span>
+          <span class="tag">尺度感知对比学习 (SAGA)</span>
+          <span class="tag">6G 信道建模 (CIR/PDP)</span>
           <span class="tag">Python</span>
-          <span class="tag">MATLAB</span>
           <span class="tag">PyTorch</span>
+          <span class="tag">MATLAB</span>
           <span class="tag">FastAPI</span>
-          <span class="tag">RAG</span>
-          <span class="tag">LLM 应用</span>
-          <span class="tag">机器学习</span>
-          <span class="tag">强化学习</span>
-          <span class="tag">PPO</span>
-          <span class="tag">数值计算</span>
-          <span class="tag">计算几何</span>
-          <span class="tag">曲面网格生成</span>
+          <span class="tag">RAG / LLM 应用开发</span>
+          <span class="tag">强化学习 (PPO)</span>
+          <span class="tag">计算几何与曲面网格</span>
           <span class="tag">LaTeX</span>
           <span class="tag">Git</span>
         </div>
@@ -806,14 +799,14 @@
     <section id="publications">
       <div class="section-card">
         <div class="section-title">
-          <h2>论文与成果</h2>
+          <h2>成果与专利</h2>
         </div>
         <div class="result-card">
           <div class="item-header">
             <h3>一种基于共形参数化与强化学习的曲面网格生成方法</h3>
             <span class="time">硕士学位论文</span>
           </div>
-          <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习建模、自适应尺寸场与网格质量优化方法。</p>
+          <p>围绕复杂曲面上的自动网格生成问题，研究共形参数化、强化学习决策、自适应尺寸场与网格质量优化方法。</p>
         </div>
         <div class="result-card">
           <div class="item-header">
